@@ -1,25 +1,57 @@
 fun main() {
-println("Ejercicio 1")
+
+    println("Ejercicio 1")
     println(esPar(4))
 
-println("Ejercicio 2")
+    println("Ejercicio 2")
     println(compararTexto("hola", "hoLa"))
-println("Ejercicio 3")
+
+    println("Ejercicio 3")
     println(esMayorque10YMenorQue20(15,15))
-println("Ejercicio 4")
+
+    println("Ejercicio 4")
     println(evaluarCalificacion(48))
-println("Ejercicio 5")
-    ///////////////
-println("Ejercicio 6")
+
+    println("Ejercicio 5")
+    val resultado = sumarNumeros(1, 3, 3, 4, 5)
+    println("La suma es: $resultado")
+
+    println("Ejercicio 6")
     var a= intArrayOf(5,4,3,2)
     var b=invertirArray(a)
     for( i in 0.. a.size-1){
         print(b[i])
     }
-println("Ejercicio 7")
-    /////////////
-println("Ejercicio 12")
+
+    println("Ejercicio 7")
+    val frutas = listOf("Manzana", "Banana", "Naranja")
+    println("Lista: $frutas")
+    val frutasNuevas= frutas + "Pera"
+    println("Lista actualizada: $frutasNuevas")
+
+    println("Ejercicio 8")
+    val colores= mutableListOf("Rojo","Verde","Azul","Amarillo")
+    println("Lista: $colores")
+    colores.remove(colores[2])
+    println("Lista actualizada: $colores")
+
+    println("Ejercicio 9")
+    imprimirNumeros()
+
+    println("Ejercicio 10")
+    imprimirLista(a)
+
+    println("Ejercicio 11")
+    imprimirNumerosHastaN(50)
+
+    println("Ejercicio 12")
     imprimirNumerosPositivos()
+
+    println("Ejercicio 13")
+    println(esPrimo(30))
+
+    println("Ejercicio 14")
+    println(encontrarPrimoMayorque100())
 
 }
 //1. Escribe una función llamada esPar que tome un número como argumento y devuelva true si es par y false si es impar.
@@ -54,6 +86,10 @@ fun evaluarCalificacion(a:Int):Char{
 }
 //5. Define una función llamada sumarNumeros que tome un número variable de argumentos utilizando vararg y devuelva la
 // suma de todos los números.
+fun sumarNumeros(vararg numeros: Int): Int {
+    return numeros.sum()
+}
+
 
 //6. Implementa una función llamada invertirArray que tome un array de números como argumento y devuelva un nuevo array
 // con los elementos en orden inverso.
@@ -63,36 +99,43 @@ fun invertirArray(a:IntArray):IntArray{
 
 //7. Crea una lista inmutable de nombres de frutas y agrega una fruta adicional a la lista.
 //En el main
+
 //8. Utiliza una lista mutable para almacenar nombres de colores y elimina un color de la lista.
 //En el main
+
 //9. Escribe una función llamada imprimirNumeros que utilice un bucle for para imprimir los números del 1 al 10.
 fun imprimirNumeros(){
     for (i in 1..10){
-        println(i)
+        print("$i ")
     }
+    println()
 }
 //10. Define una función llamada imprimirLista que tome una lista de números como argumento y utilice un bucle forEach
 // para imprimir cada número en la lista.
 fun imprimirLista(a:IntArray){
-    a.forEach { println(it) }
+    a.forEach { print("$it ") }
+    println()
 }
 //11. Implementa una función llamada imprimirNumerosHastaN que tome un número como argumento y utilice un bucle while
 // para imprimir los números del 1 al número dado.
 fun imprimirNumerosHastaN(a: Int){
     var i=1
-    while(i<a){
-        println(i)
+    while(i<=a){
+        print("$i ")
         i++
     }
+    println()
 }
 //12. Crea una función llamada imprimirNumerosPositivos que utilice un bucle do-while para imprimir números positivos
 // hasta que se alcance un número negativo.
 fun imprimirNumerosPositivos(){
-    var i=2147483641
+    var i=50
     do{
-        println(i)
-        i++
+        i--
+        print("$i ")
+
     }while(i>=0)
+    println()
 }
 //13. Define una función llamada esPrimo que tome un número como argumento y devuelva true si es primo y false si no lo
 // es. Utiliza una declaración return para salir de la función una vez que se determine si el número es primo.
@@ -106,3 +149,15 @@ fun esPrimo(a: Int): Boolean{
 }
 //14. Implementa una función llamada encontrarPrimoMayorQue100 que utilice un bucle for para encontrar el primer número
 // primo mayor que 100. Utiliza una declaración break para salir del bucle una vez que se encuentre el número primo.
+fun encontrarPrimoMayorque100():Int{
+    var bool=false
+    var res=0
+    for(i in 100..20000000){
+        bool=esPrimo(i)
+        if (bool==true){
+            res=i
+            break
+        }
+    }
+    return res
+}
